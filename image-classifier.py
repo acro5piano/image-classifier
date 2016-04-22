@@ -10,6 +10,7 @@ label_training = np.loadtxt('data/train-labels.txt')
 
 # test data
 data_test = np.loadtxt('data/test-images.txt', delimiter=' ')
+label_test = np.loadtxt('data/test-labels.txt', delimiter=' ')
 
 # learn
 #estimator = LinearSVC(C=1.0)
@@ -17,10 +18,6 @@ estimator = RandomForestClassifier()
 estimator.fit(data_training, label_training)
 
 # test
-label_prediction = estimator.predict(data_test)
-
-
-
-[ print(i) for i in label_prediction ]
+print(estimator.score(data_test, label_test))
 
 
